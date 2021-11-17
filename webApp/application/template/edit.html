@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+</head>
+<body>
+
+
+<br><br><br><br><br>
+<form action="{% url 'edit' %}" method="POST">
+  {% csrf_token %}
+  <label>نام خانوادگی:</label>
+  <input type="text" name="family"><br><br>
+
+  <input type="submit" value="ارسال">
+</form>
+
+<div><h2>{{ context }}</h2></div>
+
+<br><br><br><br>
+<a href="{% url 'index' %}"><button type="button">خانه</button></a>
+
+</body>
+</html>

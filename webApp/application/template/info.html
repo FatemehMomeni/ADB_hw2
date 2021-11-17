@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>info</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 15%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<form action="{% url 'info' %}" method="POST">
+  {% csrf_token %}
+  <label>نام خانوادگی:</label>
+  <input type="text" name="family"><br><br>
+
+  <input type="submit" value="ارسال">
+</form>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>نام</h2>
+    <div><p>{{ name }}</p></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>نام خانوادگی</h2>
+    <div><p>{{ family }}</p></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>تاریخ تولد</h2>
+    <div><p>{{ birth_date }}</p></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>شماره تماس</h2>
+    <div><p>{{ tel }}</p></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>آدرس</h2>
+    <div><p>{{ address }}</p></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>جنسیت</h2>
+    <div><p>{{ gender }}</p></div>
+  </div>
+</div>
+
+<br><br><br><br>
+<a href="{% url 'index' %}"><button type="button">خانه</button></a>
+
+</body>
+</html>
